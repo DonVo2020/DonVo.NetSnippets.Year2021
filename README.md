@@ -1,4 +1,4 @@
-# DonVo.NetSnippets.Year2021
+# DonVo.Net5Snippets.Year2021
 
 .NET 5
 C# 9
