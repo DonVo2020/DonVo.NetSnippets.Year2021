@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+option csharp_namespace = "DonVo.gRPC_Service.Year2021.Protos";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+
+service BookProtoService {
+	rpc GetBook (GetBookRequest) returns(BookModel);
+	rpc GetAllBooks (GetAllBooksRequest) returns(stream BookModel);
+
+	rpc AddBook (AddBookRequest) returns (BookModel);
+	rpc UpdateBook (UpdateBookRequest) returns (BookModel);
+	rpc DeleteBook (DeleteBookRequest) returns (DeleteBookResponse);
+
+	rpc InsertBulkBook (stream BookModel) returns (InsertBulkBookResponse);
+	rpc Test (google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message GetBookRequest{
+	int32 bookId = 1;
+}
+
+message GetAllBooksRequest{
+
+}
+
+message AddBookRequest{
+	BookModel book = 1;
+}
+
+message UpdateBookRequest{
+	BookModel book = 1;
+}
+
+message DeleteBookRequest{
+	int32 bookId = 1;
+}
+
+message DeleteBookResponse {
+  bool success = 1;
+}
+
+message InsertBulkBookResponse{
+	bool success = 1;
+	int32 insertCount = 2;
+}
+
+message BookModel{
+	int32 bookId = 1;
+	int32 authorId = 2;
+	string title = 3;
+	string description = 4;
+	float price = 5;
+	int32 copies = 6;
+	EditionType editionType = 7;
+}
+
+enum EditionType
+{
+	 Normal = 0;
+     Promo = 1;
+     Gold = 2;
+}

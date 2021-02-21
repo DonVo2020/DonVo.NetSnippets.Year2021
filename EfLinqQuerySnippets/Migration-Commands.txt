@@ -1,0 +1,8 @@
+
+Add-Migration InitialCreate -Context BillsPaymentSystemContext -OutputDir Migrations\AdvancedEntityRelations
+Add-Migration InitialCreate -Context FastFoodContext -OutputDir Migrations\AutoMappingObjects
+Add-Migration InitialCreate -Context CarDealerContext -OutputDir Migrations\JSONProcessing
+
+Update-Database -Context BillsPaymentSystemContext
+Update-Database -Context FastFoodContext
+Update-Database -Context CarDealerContext

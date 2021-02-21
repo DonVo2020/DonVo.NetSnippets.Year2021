@@ -1,0 +1,26 @@
+GET AUTHORS
+{
+  authors{
+    authorId,
+    firstName,
+    lastName
+  }
+}
+
+GET AUTHOR BY ID
+{
+  author(authorId:39)
+  {
+     firstName,
+     lastName
+  }
+}
+
+CREATE A NEW AUTHOR
+mutation {
+  createAuthor(author: {firstName: "DON", lastName: "YOU"}) {
+    authorId,
+    firstName,
+    lastName
+  }
+}
